@@ -77,6 +77,10 @@ public class Prodotto {
 		return numberToString;
 	}
 	
+	public float discountedPrice() {
+		return (float) (this.prezzoConIva() - (this.prezzoConIva() * 0.02));
+	}
+	
 	public String toString() {
 		return "Prodotto" + "\n"
 				+ "Codice: " + this.codice + "\n"

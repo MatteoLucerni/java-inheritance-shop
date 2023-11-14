@@ -27,6 +27,11 @@ public class Televisore extends Prodotto {
 		this.isSmart = isSmart;
 	}
 	
+	public float discountedPrice() {
+		if(!this.isSmart) return (float) (super.prezzoConIva() - (super.prezzoConIva() * 0.1));
+		return super.discountedPrice();
+	}
+	
 	public String toString() {
 		return super.toString() + "\n"
 				+ "Dimensione: " + this.dimensione + " pollici\n"

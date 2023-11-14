@@ -27,6 +27,11 @@ public class Smartphone extends Prodotto {
 		this.memory = memory;
 	}
 	
+	public float discountedPrice() {
+		if(this.memory < 32) return (float) (super.prezzoConIva() - (super.prezzoConIva() * 0.05));
+		return super.discountedPrice();
+	}
+	
 	public String toString() {
 		return super.toString() + "\n"
 				+ "Codice IMEI: " + this.imeiCode + "\n"

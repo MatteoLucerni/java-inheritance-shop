@@ -27,6 +27,11 @@ public class Cuffie extends Prodotto {
 		this.isWireless = isWireless;
 	}
 	
+	public float discountedPrice() {
+		if(!this.isWireless) return (float) (super.prezzoConIva() - (super.prezzoConIva() * 0.07));
+		return super.discountedPrice();
+	}
+	
 	public String toString() {
 		return super.toString() + "\n"
 				+ "Colore: " + this.colore + "\n"

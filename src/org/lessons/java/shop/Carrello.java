@@ -9,6 +9,9 @@ public class Carrello {
         Prodotto[] products = new Prodotto[20];
         
         int itemsCounter = 0;
+        
+        System.out.println("Hai la tessera fedeltà? (si / no)");
+        String hasCard = in.nextLine();
 
         while (true) {
             System.out.println("Vuoi aggiungere un elemento? (si / no)");
@@ -81,13 +84,20 @@ public class Carrello {
                         throw new IllegalArgumentException("Unexpected value: " + productType);
                 }
             } else {
+            	float totalPrice = 0;
             	for (int i=0; i<products.length; i++) {
                     if (products[i] != null) {
+                    	if(hasCard.equals("si")) {
+                    		totalPrice += products[i].discountedPrice();
+                    	} else {
+                    		totalPrice += products[i].prezzoConIva();
+                    	}
                     	System.out.println("-----------------------------------");
                         System.out.println(products[i].toString());
                         System.out.println("-----------------------------------");
                     }
                 }
+            	System.out.println("Prezzo totale: " + totalPrice + "€");
             	break;
             }
         }
